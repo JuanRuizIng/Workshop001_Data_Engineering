@@ -11,6 +11,9 @@ sqlalchemy = "^2.0.32"
 numpy = "2.0"
 pandas = "^2.2.2"
 psycopg2 = "^2.9.9"
+notebook = "^7.2.1"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
 
 
 [build-system]
