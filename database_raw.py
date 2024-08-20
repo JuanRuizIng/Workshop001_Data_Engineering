@@ -15,6 +15,10 @@ def credential_loader():
     
     return username, password, host, port, database
 
+def create_engine_postgres():
+    username, password, host, port, database = credential_loader()
+    engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}')
+    return engine
 
 # Create table in the database
 def create_table(engine, df):
@@ -49,8 +53,7 @@ def create_table(engine, df):
 # Main function to contain the code I want to run
 def main():
     df = pd.read_csv('candidates.csv', sep=';')
-    username, password, host, port, database = credential_loader()
-    engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}')
+    engine = create_engine_postgres()
     create_table(engine, df)
 
 if __name__ == '__main__':

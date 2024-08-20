@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine, Table, Column, Integer,Float, String, MetaData, inspect
-from database_raw import credential_loader
+from database_raw import credential_loader, create_engine_postgres
 
 #Este código se me ocurrió pero no es para nada optimo, lo dejo comentado para que veas que se me ocurrió.
 
@@ -45,8 +45,7 @@ def create_table(engine, df):
 
 
 def main():
-    username, password, host, port, database = credential_loader()
-    engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}')
+    engine = create_engine_postgres()
     df = pd.read_sql_query('SELECT * FROM candidates_raw', engine)
     df = limpieza_general(df)
     create_table(engine, df)
