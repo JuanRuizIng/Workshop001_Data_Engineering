@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
-from sqlalchemy import create_engine, Table, Column, Integer,Float, String, MetaData, inspect
-from database_raw import credential_loader, create_engine_postgres
+from database.database import create_engine_postgres, create_table
 
 #Este código se me ocurrió pero no es para nada optimo, lo dejo comentado para que veas que se me ocurrió.
 
@@ -21,34 +20,12 @@ def limpieza_general(data):
     
     return data
 
-def create_table(engine, df):
-    def infer_sqlalchemy_type(dtype):
-        """ Map pandas dtype to SQLAlchemy's types """
-        if "int" in dtype.name:
-            return Integer
-        elif "float" in dtype.name:
-            return Float
-        elif "object" in dtype.name:
-            return String(255)
-        else:
-            return String(255)
-    
-    if not inspect(engine).has_table('candidates_cleaned'):  # If table don't exist, Create.
-        metadata = MetaData()
-        columns = [Column(name, infer_sqlalchemy_type(dtype)) for name, dtype in df.dtypes.items()]
-        table = Table('candidates_cleaned', metadata, *columns)
-        table.create(engine)
-        # Insert data into the table
-        df.to_sql('candidates_cleaned', con=engine, if_exists='append', index=False)
-    else:
-        print('Table candidates_cleaned already exists.')
-
 
 def main():
     engine = create_engine_postgres()
     df = pd.read_sql_query('SELECT * FROM candidates_raw', engine)
     df = limpieza_general(df)
-    create_table(engine, df)
+    create_table(engine, df, 'candidates_cleaned')
 
 if __name__ == '__main__':
     main()
