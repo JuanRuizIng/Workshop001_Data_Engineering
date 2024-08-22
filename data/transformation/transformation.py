@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from database.database import create_engine_postgres, create_table
+from function.database.database import create_engine_postgres, create_table
 
 #Este código se me ocurrió pero no es para nada optimo, lo dejo comentado para que veas que se me ocurrió.
 

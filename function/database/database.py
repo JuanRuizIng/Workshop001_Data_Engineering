@@ -1,5 +1,4 @@
 from sqlalchemy import create_engine, Table, Column, Integer,Float, String, MetaData, inspect, DateTime
-import pandas as pd
 import json
 
 def create_table(engine, df, table_name):
@@ -13,8 +12,9 @@ def create_table(engine, df, table_name):
     else:
         print(f'Table {table_name} already exists.')
 
+
 def credential_loader():
-    with open ('credential.json', 'r') as credentials:
+    with open ('./credentials/credential.json', 'r') as credentials:
         """ Load credentials from json file """
         credential = json.load(credentials)
         username = credential.get('username')
@@ -24,6 +24,7 @@ def credential_loader():
         database = credential.get('database')
     
     return username, password, host, port, database
+
 
 def create_engine_postgres():
     username, password, host, port, database = credential_loader()

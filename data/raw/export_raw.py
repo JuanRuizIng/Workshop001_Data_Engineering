@@ -1,4 +1,4 @@
-from database.database import create_engine_postgres, create_table
+from function.database.database import create_engine_postgres, create_table
 import pandas as pd
 
 
@@ -10,7 +10,7 @@ import pandas as pd
 
 # Main function to contain the code I want to run
 def main():
-    df = pd.read_csv('candidates.csv', sep=';')
+    df = pd.read_csv('data/raw/candidates.csv', sep=';')
     engine = create_engine_postgres()
     create_table(engine, df, 'candidates_raw')
 
