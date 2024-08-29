@@ -14,7 +14,7 @@ from function.database.database import create_engine_postgres, create_table
 def limpieza_general(data):
     data.dropna(inplace=True)
     data['Application Date'] = pd.to_datetime(data['Application Date'])
-    data['is_hired'] = np.where((data['Technical Interview Score'] >= 7) & (data['Code Challenge Score'] >= 7), 'Hired', 'Not Hired')
+    data['is_hired'] = np.where((data['Technical Interview Score'] >= 7) & (data['Code Challenge Score'] >= 7), 1, 0)
     if data.duplicated().sum() > 0:
         data.drop_duplicates(inplace=True)
     
