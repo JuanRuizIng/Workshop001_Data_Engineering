@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "workshop001-data-engineering"
+version = "0.1.0"
+description = ""
+authors = ["JuanRuizIng <juan_andres.ruiz@uao.edu.co>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlalchemy = "^2.0.32"
+numpy = "2.0"
+pandas = "^2.2.2"
+psycopg2 = "^2.9.9"
+notebook = "^7.2.1"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
