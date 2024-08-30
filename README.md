@@ -81,7 +81,7 @@ To establish the connection to the database, we use a module called *database* f
 
 ### Installing the dependencies with *Poetry*
 
-> To install Poetry follow [this link](https://elcuaderno.notion.site/Poetry-8f7b23a0f9f340318bbba4ef36023d60?pvs=4).
+> To install Poetry follow `pip install poetry`.
 
 In the repository terminal:
 
@@ -104,7 +104,7 @@ Place candidates.csv inside the data/raw folder
    1. *EDA_raw.ipynb*
    2. *EDA_cleaned.ipynb*
   
-Remember to choose **the right Python kernel** at the time of running the notebook and **install the *ipykernel*** to support Jupyter notebooks in VS Code.
+Remember to choose **the appropriate Python kernel** when running the notebook and **install the *ipykernel*** to support Jupyter notebooks in VS Code with the poetry virtual environment.
 
 ### Connecting the database with Power BI
 
@@ -135,5 +135,4 @@ Remember to choose **the right Python kernel** at the time of running the notebo
 
 ## Thank you! 💩🐍
 
-Thanks for visiting my project. Any suggestion or contribution is always welcome 🦻.
 Law 7, The 48 Laws of Power - Robert Greene
