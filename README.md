@@ -89,8 +89,6 @@ In the repository terminal:
 
 2. Once the virtual environment is created, execute `poetry install` to install the dependencies.
 
-3. Now you can execute the code!
-
 ### Set candidates.csv
 
 Place candidates.csv inside the data/raw folder
