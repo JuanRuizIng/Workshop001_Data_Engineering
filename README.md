@@ -93,7 +93,9 @@ In the repository terminal:
 
 ### Set candidates.csv
 
-1. Place candidates.csv inside the data/raw folder
+Place candidates.csv inside the data/raw folder
+
+![image](https://github.com/user-attachments/assets/e05d41e9-895b-47d4-941c-1f835f71b2d5)
 
 ### Running the code
 
