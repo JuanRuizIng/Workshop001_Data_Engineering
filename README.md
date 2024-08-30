@@ -91,6 +91,9 @@ In the repository terminal:
 
 3. Now you can execute the code!
 
+### Set candidates.csv
+
+1. Place candidates.csv inside the data/raw folder
 
 ### Running the code
 
